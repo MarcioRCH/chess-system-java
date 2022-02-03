@@ -1,4 +1,4 @@
-package Xadrez;
+package xadrez;
 
 import boardgame.Piece;
 import boardgame.Tabuleiro;
