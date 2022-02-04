@@ -29,6 +29,12 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+	//metodo para limpar a tela a cada jogada
+	public static void limpaTela() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	//metodo para ler uma posição informada pelo usuário
 	public static PosicaoXadrez lendoPosicaoXadrez(Scanner sc) {
 		try {
