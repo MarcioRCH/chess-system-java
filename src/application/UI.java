@@ -1,7 +1,11 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Cor;
 import xadrez.PecaXadrez;
+import xadrez.PosicaoXadrez;
 
 public class UI {
 	//codigos das cores do texto
@@ -24,6 +28,19 @@ public class UI {
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+	
+	//metodo para ler uma posição informada pelo usuário
+	public static PosicaoXadrez lendoPosicaoXadrez(Scanner sc) {
+		try {
+			String str = sc.nextLine();
+			char coluna = str.charAt(0);
+			int linha = Integer.parseInt(str.substring(1));//recorta a string na posição informada:(1) e converte o resultado para inteiro
+			return new PosicaoXadrez(coluna, linha);
+		}
+		catch (RuntimeException e) {
+			throw new InputMismatchException("Erro na leitura da posição. Os valores validos são a1 até h8.");
+		}
+	}
 	
 	public static void mostraTabuleiro(PecaXadrez[][] pieces) {
 		for(int i = 0; i < pieces.length; i++) {
