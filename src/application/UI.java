@@ -52,7 +52,7 @@ public class UI {
 		for(int i = 0; i < pieces.length; i++) {
 			System.out.print((8 - i) + " ");
 			for(int j = 0; j < pieces.length; j++) {
-				mostraPiece(pieces[i][j]);
+				mostraPiece(pieces[i][j], false);
 			}
 			System.out.println();
 		}
@@ -60,9 +60,24 @@ public class UI {
 
 	}
 	
-	private static void mostraPiece(PecaXadrez piece) {
+	public static void mostraTabuleiro(PecaXadrez[][] pieces, boolean[][] movimentosPossiveis) {
+		for(int i = 0; i < pieces.length; i++) {
+			System.out.print((8 - i) + " ");
+			for(int j = 0; j < pieces.length; j++) {
+				mostraPiece(pieces[i][j], movimentosPossiveis[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h");
+
+	}
+	
+	private static void mostraPiece(PecaXadrez piece, boolean background) {
+		if(background) {
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
 		if(piece == null) {
-			System.out.print("-");
+			System.out.print("-" + ANSI_RESET);
 		}
 		else {
 			if(piece.getCor() == Cor.BRANCA) {

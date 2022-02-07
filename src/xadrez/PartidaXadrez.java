@@ -25,6 +25,13 @@ public class PartidaXadrez {
 		return matriz;
 	}
 	
+	//metodo indicador de movimentos possívies de cada peça
+	public boolean[][] movimentosPossiveis(PosicaoXadrez posicaoOrigem){
+		Posicao posicao = posicaoOrigem.toPosicao();//converte s podição do xadrez para a posição da matriz
+		validaPosicaoOrigem(posicao);
+		return tabuleiro.piece(posicao).movimentosPossiveis();
+	}
+	
 	//metodo que realiza o movimento das peças
 	public PecaXadrez movimentoDasPecas(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
 		Posicao origem = posicaoOrigem.toPosicao();//convertendo as posições de origem e destino para as posições da matriz
