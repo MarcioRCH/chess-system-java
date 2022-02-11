@@ -17,6 +17,10 @@ public abstract class PecaXadrez extends Piece{
 		return cor;
 	}
 	
+	public PosicaoXadrez getPosicaoXadrez() {
+		return PosicaoXadrez.daPosicao(posicao);
+	}
+	
 	//metodo que verifica se existe uma peça adversária na posição de destino
 	protected boolean existeUmaPecaOponente(Posicao posicao) {
 		PecaXadrez peca = (PecaXadrez)getTabuleiro().piece(posicao);
