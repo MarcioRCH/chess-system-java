@@ -91,7 +91,8 @@ public class PartidaXadrez {
 	
 	//metodo que realiza efetivamente o movimento da peça
 	private Piece fazMovimento(Posicao origem, Posicao destino) {
-		Piece p = tabuleiro.removePeca(origem);
+		PecaXadrez p = (PecaXadrez)tabuleiro.removePeca(origem);
+		p.incrementaContadorDeMovimento();
 		Piece pecaCapturada =  tabuleiro.removePeca(destino);
 		tabuleiro.colocaPeca(p, destino);
 		
@@ -105,8 +106,9 @@ public class PartidaXadrez {
 	
 	//metodo que desfaz efetivamente o movimento da peça
 	private void desfazMovimento(Posicao origem, Posicao destino, Piece pecaCapturada) {
-		Piece ps = tabuleiro.removePeca(destino);
+		PecaXadrez ps = (PecaXadrez)tabuleiro.removePeca(destino);
 		tabuleiro.colocaPeca(ps, origem);
+		ps.decrementaContadorDeMovimento();
 		
 		if(pecaCapturada != null) {
 			tabuleiro.colocaPeca(pecaCapturada, destino);
