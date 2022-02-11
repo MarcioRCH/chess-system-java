@@ -146,7 +146,7 @@ public class PartidaXadrez {
 	}
 	
 	private PecaXadrez Rei(Cor cor) {
-		List<Piece> list = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrez)x).getCor() == oponente(cor)).collect(Collectors.toList());
+		List<Piece> list = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrez)x).getCor() == cor).collect(Collectors.toList());
 		for(Piece p : list) {
 			if(p instanceof Rei) {
 				return (PecaXadrez)p;
@@ -157,7 +157,7 @@ public class PartidaXadrez {
 	
 	private boolean testeCheck(Cor cor) {
 		Posicao posicaoDoRei = Rei(cor).getPosicaoXadrez().paraPosicao();
-		List<Piece> pecasOponentes = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrez)x).getCor() == cor).collect(Collectors.toList());
+		List<Piece> pecasOponentes = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrez)x).getCor() == oponente(cor)).collect(Collectors.toList());
 		for(Piece p : pecasOponentes) {
 			boolean[][] matriz = p.movimentosPossiveis();
 			if (matriz[posicaoDoRei.getLinha()][posicaoDoRei.getColuna()]) {
