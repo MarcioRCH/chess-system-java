@@ -18,6 +18,10 @@ public abstract class PecaXadrez extends Piece{
 		return cor;
 	}
 	
+	public int getContadorDeMovimento() {
+		return contadorDeMovimento;
+	}
+	
 	public void incrementaContadorDeMovimento() {
 		contadorDeMovimento++;
 	}
