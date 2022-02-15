@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import boardgame.Piece;
 import boardgame.Posicao;
 import boardgame.Tabuleiro;
+import pecas.xadrez.Bispo;
 import pecas.xadrez.Peao;
 import pecas.xadrez.Rei;
 import pecas.xadrez.Torre;
@@ -200,7 +201,9 @@ public class PartidaXadrez {
 	
 	private void iniciaPartida() {
 		colocaNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCA));
+		colocaNovaPeca('c', 1, new Bispo(tabuleiro, Cor.BRANCA));
 		colocaNovaPeca('e', 1, new Rei(tabuleiro, Cor.BRANCA));
+		colocaNovaPeca('f', 1, new Bispo(tabuleiro, Cor.BRANCA));
 		colocaNovaPeca('h', 1, new Torre(tabuleiro, Cor.BRANCA));
 		colocaNovaPeca('a', 2, new Peao(tabuleiro, Cor.BRANCA));
 		colocaNovaPeca('b', 2, new Peao(tabuleiro, Cor.BRANCA));
@@ -212,7 +215,9 @@ public class PartidaXadrez {
 		colocaNovaPeca('h', 2, new Peao(tabuleiro, Cor.BRANCA));
 		
 		colocaNovaPeca('a', 8, new Torre(tabuleiro, Cor.PRETA));
+		colocaNovaPeca('c', 8, new Bispo(tabuleiro, Cor.PRETA));
 		colocaNovaPeca('e', 8, new Rei(tabuleiro, Cor.PRETA));
+		colocaNovaPeca('f', 8, new Bispo(tabuleiro, Cor.PRETA));
 		colocaNovaPeca('h', 8, new Torre(tabuleiro, Cor.PRETA));
 		colocaNovaPeca('a', 7, new Peao(tabuleiro, Cor.PRETA));
 		colocaNovaPeca('b', 7, new Peao(tabuleiro, Cor.PRETA));
